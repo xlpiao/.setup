@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/hlpark/workspace/deepfashion-recommender-analysis/.git/hooks'
+let g:netrw_dirhist_2='/Applications/MATLAB_R2014a.app/toolbox/matlab/datafun'
+let g:netrw_dirhist_3='/home/hlpark/workspace/opencl/clBLAS'
+let g:netrw_dirhist_4='/home/hlpark/workspace/opencl/opencl-toolbox/gpuconv'

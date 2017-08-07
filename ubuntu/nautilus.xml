@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="desktop_font" mtime="1385046820" type="string">
+		<stringvalue>Envy Code R 11</stringvalue>
+	</entry>
+	<entry name="navigation_window_saved_maximized" mtime="1385046446" type="bool" value="false"/>
+	<entry name="navigation_window_saved_geometry" mtime="1385046446" type="string">
+		<stringvalue>800x550+527+380</stringvalue>
+	</entry>
+	<entry name="start_with_sidebar" mtime="1385046414" type="bool" value="true"/>
+</gconf>

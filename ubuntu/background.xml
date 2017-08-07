@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="picture_filename" mtime="1389417628" type="string">
+		<stringvalue>file:///home/hyanglan/Dropbox/myConfig/coffee.png</stringvalue>
+	</entry>
+</gconf>
