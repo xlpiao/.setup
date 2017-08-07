@@ -160,6 +160,7 @@ syntax on
 
 " vulkan highlight
 autocmd FileType cpp,c source ~/.vim/syntax/vulkan1.0.vim
+runtime macros/matchit.vim
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
