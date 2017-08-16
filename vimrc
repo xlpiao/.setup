@@ -160,7 +160,6 @@ syntax on
 
 " vulkan highlight
 autocmd FileType cpp,c source ~/.vim/syntax/vulkan1.0.vim
-runtime macros/matchit.vim
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -194,7 +193,7 @@ else
 	hi Statement        ctermfg=161                     cterm=bold
 	hi StatusLine       ctermfg=233     ctermbg=251     cterm=none
 	hi StatusLineNC     ctermfg=242     ctermbg=232
-	hi Visual                           ctermbg=236
+	hi Visual                           ctermbg=238
 	" hi Normal           ctermfg=15      ctermbg=none
 	hi Normal           ctermfg=15      ctermbg=232
 	hi Comment          ctermfg=244

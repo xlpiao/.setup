@@ -17,39 +17,35 @@ export GNUTERM=x11
 export HL=$HOME/workspace/
 
 ## 3D ##
-export GLSLANG=$HOME/workspace/fork-glslang
+export GLSLANG=$HOME/sf_workspace/d3d11/spirv/glslang
 alias glslangValidator=$GLSLANG/build/install/bin/glslangValidator
 alias spirv-remap=$GLSLANG/build/install/bin/spirv-remap
 
-export SPIRV_Tools=$HOME/workspace/SPIRV-Tools
+export SPIRV_Tools=$HOME/sf_workspace/d3d11/spirv/SPIRV-Tools
 alias spirv-as=$SPIRV_Tools/build/tools/spirv-as
 alias spirv-dis=$SPIRV_Tools/build/tools/spirv-dis
 alias spirv-cfg=$SPIRV_Tools/build/tools/spirv-cfg
 alias spirv-opt=$SPIRV_Tools/build/tools/spirv-opt
 alias spirv-val=$SPIRV_Tools/build/tools/spirv-val
 
-export SPIRV_Cross=$HOME/workspace/SPIRV-Cross
+export SPIRV_Cross=$HOME/sf_workspace/d3d11/spirv/SPIRV-Cross
 alias spirv-cross=$SPIRV_Cross/build/spirv-cross
 
 ## tmux ##
 ## type in server pc
-alias tmux_new='tmux new -s glslang'
-alias tmux_attach='tmux a -t glslang'
-alias tmux_kill='tmux kill-session -t glslang'
+alias tmux_new='tmux new -s test'
+alias tmux_attach='tmux a -t test'
+alias tmux_kill='tmux kill-session -t test'
 ## type in client pc
-alias tmux_tos='ssh tos -t "tmux -u -CC attach"'
-alias tmux_server='ssh server -t "tmux -u -CC attach"'
+alias tmux_server='ssh server_root -t "tmux -u -CC attach"'
 
 # export CUDAROOT=/usr/local/cuda-5.0 
 # export LD_LIBRARY_PATH=$CUDAROOT/lib64:$LD_LIBRARY_PATH
-# export PYTHONPATH=$PYTHONPATH:~/svn/papl/projects/parallelJS/tag/jaws_ieeetpds15/figures/ep-py
 # export PYTHONPATH=$PYTHONPATH:~/workspace/scripts
-
 # export PIN_ROOT=~/svn/papl/external/pin-2.13-65163-gcc.4.4.7-linux
 
 # ------------------------------ start ------------------------------ #
 export LSCOLORS="ExGxBxDxCxEgEdxbxgacad"
-# export GREP_OPTIONS='--color=always'
 export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=01;30:fn=35:ln=32:bn=32:se=36"
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -61,7 +57,6 @@ else # OS X
     export LC_ALL=C
     alias grep="grep --exclude-dir='.svn' --exclude=tags --color=auto"
     alias ctags="`brew --prefix`/bin/ctags"
-	# export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig/:
 fi
 
 alias ll='ls -alF'
