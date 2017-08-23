@@ -1,22 +1,11 @@
 #!/bin/bash
-# File: .bash_profile
+# File: .bashrc
 # Author: Xianglan Piao <xianglan0502@gmail.com>
-# Date: 2016.10.05
+# Date: 2012.07.31
 
-
-export PATH=/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin
-
-export EDITOR=vim
-export SVN_EDITOR=vim
-export SVN_MERGE=vimdiff
-export FIGNORE=.svn
-export TERM=xterm-256color
-export DISPLAY=:0
-export GNUTERM=x11
-
-export HL=$HOME/workspace/
-
-## 3D ##
+################################################################################
+## Temporary Command Configurations
+################################################################################
 export GLSLANG=$HOME/sf_workspace/d3d11/spirv/glslang
 alias glslangValidator=$GLSLANG/build/install/bin/glslangValidator
 alias spirv-remap=$GLSLANG/build/install/bin/spirv-remap
@@ -31,20 +20,36 @@ alias spirv-val=$SPIRV_Tools/build/tools/spirv-val
 export SPIRV_Cross=$HOME/sf_workspace/d3d11/spirv/SPIRV-Cross
 alias spirv-cross=$SPIRV_Cross/build/spirv-cross
 
-## tmux ##
-## type in server pc
+
+################################################################################
+## User Command Configurations
+################################################################################
+## Used in server pc
 alias tmux_new='tmux new -s test'
 alias tmux_attach='tmux a -t test'
 alias tmux_kill='tmux kill-session -t test'
-## type in client pc
+## Used in client pc
 alias tmux_server='ssh server_root -t "tmux -u -CC attach"'
 
-# export CUDAROOT=/usr/local/cuda-5.0 
+export HL=$HOME/workspace/
+# export CUDAROOT=/usr/local/cuda-5.0
 # export LD_LIBRARY_PATH=$CUDAROOT/lib64:$LD_LIBRARY_PATH
 # export PYTHONPATH=$PYTHONPATH:~/workspace/scripts
 # export PIN_ROOT=~/svn/papl/external/pin-2.13-65163-gcc.4.4.7-linux
 
-# ------------------------------ start ------------------------------ #
+
+################################################################################
+## System Command Configurations
+################################################################################
+export PATH=/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin
+export EDITOR=vim
+export SVN_EDITOR=vim
+export SVN_MERGE=vimdiff
+export FIGNORE=.svn
+export TERM=xterm-256color
+export DISPLAY=:0
+export GNUTERM=x11
+
 export LSCOLORS="ExGxBxDxCxEgEdxbxgacad"
 export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=01;30:fn=35:ln=32:bn=32:se=36"
 
@@ -65,22 +70,25 @@ alias l='ls -CF'
 alias checkport="sudo lsof -i -P | grep -i 'listen'"
 
 
-function countType(){
-    find . -type f | sed -e 's/.*\.//' | sed -e 's/.*\///' | sort | uniq -c | sort -rn
-}
-function gitclean() {
+################################################################################
+## Functions
+################################################################################
+function gitclean()
+{
     echo "recursively removing all .git folders from the following directory"
     pwd
     find . -name .git -print0 | xargs -0 rm -rf
 }
 
-function svnclean() {
+function svnclean()
+{
     echo "recursively removing all .svn folders from the following directory"
     pwd
     find . -name .svn -print0 | xargs -0 rm -rf
 }
 
-function x11() {
+function x11()
+{
     if [[ "$1" == "reset" ]]; then
         export DISPLAY=:0
         echo $DISPLAY
@@ -90,11 +98,8 @@ function x11() {
     fi
 }
 
-# function rename() {
-    # for f in *;do mv $f ${f/$1/$2};done
-# }
-
-function monitor() {
+function monitor()
+{
     if [[ "$1" == "on" ]]; then
         xset dpms force on
         xset dpms s reset
@@ -105,7 +110,13 @@ function monitor() {
     fi
 }
 
-function psColor() {  
+function countType()
+{
+    find . -type f | sed -e 's/.*\.//' | sed -e 's/.*\///' | sort | uniq -c | sort -rn
+}
+
+function psColor()
+{
     local BLACK="\[\033[0;30m\]"
     local BLACKBOLD="\[\033[1;30m\]"
     local RED="\[\033[0;31m\]"
@@ -127,33 +138,35 @@ function psColor() {
     if [[ $USER == "root" ]]; then
         if [[ $OS == "Linux" ]]; then
             export PS1="\[\e]0; \u@\h: \w\a\]$GREEN\u$GREEN@\h$YELLOW\w:#\[\e[00m\] "
-	    elif [[ $OS == "Darwin" ]]; then
-     	    export PS1="\[\e]0; \u@\h: \w\a\]$RED\u$RED@\h$YELLOW\w:#\[\e[00m\] "
+        elif [[ $OS == "Darwin" ]]; then
+            export PS1="\[\e]0; \u@\h: \w\a\]$RED\u$RED@\h$YELLOW\w:#\[\e[00m\] "
         elif [[ $OS == "FreeBSD" ]]; then
             export PS1="\[\e]0; \u@\h: \w\a\]$BLUE\u$BLUE@\h$YELLOW\w:#\[\e[00m\] "
-	    else
+        else
             export PS1="\[\e]0; \u@\h: \w\a\]$CYAN\u$CYAN@\h$YELLOW\w:#\[\e[00m\] "
         fi
-	else
+    else
         if [[ $OS == "Linux" ]]; then
             export PS1="\[\e]0; \u@\h: \w\a\]$GREEN\u$GREEN@\h$YELLOW\w:$\[\e[00m\] "
-	    elif [[ $OS == "Darwin" ]]; then
-     	    export PS1="\[\e]0; \u@\h: \w\a\]$RED\u$RED@\h$YELLOW\w:$\[\e[00m\] "
+        elif [[ $OS == "Darwin" ]]; then
+            export PS1="\[\e]0; \u@\h: \w\a\]$RED\u$RED@\h$YELLOW\w:$\[\e[00m\] "
         elif [[ $OS == "FreeBSD" ]]; then
             export PS1="\[\e]0; \u@\h: \w\a\]$BLUE\u$BLUE@\h$YELLOW\w:$\[\e[00m\] "
-	    else
+        else
             export PS1="\[\e]0; \u@\h: \w\a\]$CYAN\u$CYAN@\h$YELLOW\w:$\[\e[00m\] "
         fi
     fi
 }
 psColor
 
-function notify() {
+function notify()
+{
     me="HL"
     echo "[$me-alert] $@"
 }
 
-function sshhl() {
+function sshhl()
+{
     papl
     # ssh ubuntu and change dir to $sshpath
     sshpath=$(pwd | cut -d/ -f5-)           # cut /Users/hyanglan/ubuntu/
@@ -162,7 +175,8 @@ function sshhl() {
     ssh ubuntu -t "cd $sshpath; /bin/bash"  # connect ssh and cd
 }
 
-function papl() {
+function papl()
+{
     if [[ "$1" == "kill" ]]; then
         echo "umount ubuntu"
         umount -f ~/ubuntu
@@ -180,11 +194,13 @@ function papl() {
     fi
 }
 
-function extract() {
+function extract()
+{
     if [[ -f $1 ]]; then
         case $1 in
             *.tar.bz2)  tar xjf $1     ;;
             *.tar.gz)   tar xzf $1     ;;
+            *.tar.xz)   tar xf $1      ;;
             *.bz2)      bunzip2 $1     ;;
             *.rar)      unrar e $1     ;;
             *.gz)       gunzip $1      ;;
@@ -201,17 +217,15 @@ function extract() {
     fi
 }
 
-function today() {
-    date +"%A, %B %-d, %Y"
-}
-
 # chmodf 0775 .
-chmodf() {
-        find $2 -type f -exec chmod $1 {} \;
-}
-# chmodd 0664 .
-chmodd() {
-        find $2 -type d -exec chmod $1 {} \;
+function chmodf()
+{
+    find $2 -type f -exec chmod $1 {} \;
 }
 
-# ------------------------------ end ------------------------------ #
+# chmodd 0664 .
+function chmodd()
+{
+    find $2 -type d -exec chmod $1 {} \;
+}
+
