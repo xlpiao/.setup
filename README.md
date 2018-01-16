@@ -8,7 +8,7 @@ cd .xlpiao
 ./install.sh
 ```
 
-## vim plugins
+## List of VIM Plugins
 ```
 https://github.com/gmarik/Vundle.vim.git
 https://github.com/jiangmiao/auto-pairs.git
