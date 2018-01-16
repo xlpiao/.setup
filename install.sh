@@ -11,19 +11,28 @@ for p in ${PACKAGE[@]}; do
     if [[ "$OSTYPE" == "linux-gnu" ]]; then
         sudo apt-get -y install $p
     elif [[ "$OSTYPE" == "darwin16" ]]; then
-        brew install $p
+        sudo port install $p
     else
-        pkg install $p
+        sudo pkg install $p
     fi
 done
 
-TARGET=("vim" "vimrc" "bashrc" "bash_profile")
+
+TARGET=("vim" "vimrc" "bashrc" "bash_profile" "gitconfig")
 for t in ${TARGET[@]}; do
     rm -rf $HOME/.$t
     ln -s $PWD/$t $HOME/.$t
     echo $t" is changed"
 done
 
-mkdir -p $HOME/.vim/bundle
+
+if [[ -d "$HOME/.vim/bundle" ]]; then
+    rm -rf $HOME/.vim/bundle
+    mkdir -p $HOME/.vim/bundle
+fi
+
+
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
+
+source $HOME/.bashrc

@@ -7,9 +7,23 @@
 ## Temporary Command Configurations
 ################################################################################
 
+export CC='/usr/bin/clang-3.8'
+export CXX='/usr/bin/clang++-3.8'
 
+## trunk dir
+export TRUNK=$HOME/trunk
 
-export SPIRV=/root/trunk/src/toc/test/gk/gk1-4/d3d11/spirv
+## d3d11 dir
+alias toc='cd $TRUNK/src/toc'
+alias build='cd $TRUNK/src/toc/build'
+alias test='cd $TRUNK/src/toc/test/gk/gk1-4'
+alias lib='cd $TRUNK/src/toc/src/lib/twk2/directx'
+alias dll='cd $TRUNK/src/toc/src/dlls/gk/directx'
+alias spirv='cd $TRUNK/src/toc/test/gk/gk1-4/d3d11/spirv'
+
+## spirv dir
+export SPIRV=$TRUNK/src/toc/test/gk/gk1-4/d3d11/spirv
+
 export GLSLANG=$SPIRV/glslang
 alias glslangValidator=$GLSLANG/build/install/bin/glslangValidator
 alias spirv-remap=$GLSLANG/build/install/bin/spirv-remap
@@ -23,13 +37,6 @@ alias spirv-val=$SPIRV_Tools/build/tools/spirv-val
 
 export SPIRV_Cross=$SPIRV/SPIRV-Cross
 alias spirv-cross=$SPIRV_Cross/build/spirv-cross
-
-## d3d11 dir
-alias toc='cd ~/trunk/src/toc'
-alias build='cd ~/trunk/src/toc/build'
-alias test='cd ~/trunk/src/toc/test/gk/gk1-4'
-alias lib='cd ~/trunk/src/toc/src/lib/twk2/directx'
-alias dll='cd ~/trunk/src/toc/src/dlls/gk/directx'
 
 ################################################################################
 ## User Command Configurations
@@ -71,7 +78,8 @@ elif [[ "$OSTYPE" == "darwin16" ]]; then
     export CLICOLOR=1
     export LC_ALL='en_US.UTF-8'
     alias grep="grep --exclude-dir='.svn' --exclude=tags --color=auto"
-    alias ctags="`brew --prefix`/bin/ctags"
+    export PATH="/opt/local/bin:/opt/local/sbin:$PATH" ## For MacPorts
+    # alias ctags="`brew --prefix`/bin/ctags"
 else
     alias grep="grep --exclude-dir='.svn' --exclude=tags --color=auto"
 fi

@@ -1,4 +1,4 @@
-# Personal Configure for Mac and Ubuntu
+# Personal Configuration for Mac and Ubuntu
 ---------------------------------
 
 ## Installation
@@ -6,6 +6,12 @@
 git clone https://github.com/xlpiao/.xlpiao.git
 cd .xlpiao
 ./install.sh
+```
+
+## Git Configuration 
+```
+git config --global user.email "Your Email Address"
+git config --global user.name "Your Name"
 ```
 
 ## List of VIM Plugins
