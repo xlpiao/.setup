@@ -6,18 +6,22 @@
 ################################################################################
 ## Temporary Command Configurations
 ################################################################################
-export GLSLANG=$HOME/sf_workspace/d3d11/spirv/glslang
+
+
+
+export SPIRV=/root/trunk/src/toc/test/gk/gk1-4/d3d11/spirv
+export GLSLANG=$SPIRV/glslang
 alias glslangValidator=$GLSLANG/build/install/bin/glslangValidator
 alias spirv-remap=$GLSLANG/build/install/bin/spirv-remap
 
-export SPIRV_Tools=$HOME/sf_workspace/d3d11/spirv/SPIRV-Tools
+export SPIRV_Tools=$SPIRV/SPIRV-Tools
 alias spirv-as=$SPIRV_Tools/build/tools/spirv-as
 alias spirv-dis=$SPIRV_Tools/build/tools/spirv-dis
 alias spirv-cfg=$SPIRV_Tools/build/tools/spirv-cfg
 alias spirv-opt=$SPIRV_Tools/build/tools/spirv-opt
 alias spirv-val=$SPIRV_Tools/build/tools/spirv-val
 
-export SPIRV_Cross=$HOME/sf_workspace/d3d11/spirv/SPIRV-Cross
+export SPIRV_Cross=$SPIRV/SPIRV-Cross
 alias spirv-cross=$SPIRV_Cross/build/spirv-cross
 
 ## d3d11 dir
