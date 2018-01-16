@@ -20,6 +20,12 @@ alias spirv-val=$SPIRV_Tools/build/tools/spirv-val
 export SPIRV_Cross=$HOME/sf_workspace/d3d11/spirv/SPIRV-Cross
 alias spirv-cross=$SPIRV_Cross/build/spirv-cross
 
+## d3d11 dir
+alias toc='cd ~/trunk/src/toc'
+alias build='cd ~/trunk/src/toc/build'
+alias test='cd ~/trunk/src/toc/test/gk/gk1-4'
+alias lib='cd ~/trunk/src/toc/src/lib/twk2/directx'
+alias dll='cd ~/trunk/src/toc/src/dlls/gk/directx'
 
 ################################################################################
 ## User Command Configurations
@@ -29,7 +35,7 @@ alias tmux_new='tmux new -s test'
 alias tmux_attach='tmux a -t test'
 alias tmux_kill='tmux kill-session -t test'
 ## Used in client pc
-alias tmux_server='ssh server_root -t "tmux -u -CC attach"'
+alias tmux_server='ssh server -t "tmux -u -CC attach"'
 
 export HL=$HOME/workspace/
 # export CUDAROOT=/usr/local/cuda-5.0
@@ -56,12 +62,14 @@ export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=01;30:fn=35:ln=32:bn=32:se=36"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     alias ls='ls --color=auto'
     alias grep="grep --exclude-dir='.svn' --exclude=tags --color=auto"
-else # OS X
+elif [[ "$OSTYPE" == "darwin16" ]]; then
+# else # OS X
     export CLICOLOR=1
-    export LC_CTYPE=C
-    export LC_ALL=C
+    export LC_ALL='en_US.UTF-8'
     alias grep="grep --exclude-dir='.svn' --exclude=tags --color=auto"
     alias ctags="`brew --prefix`/bin/ctags"
+else
+    alias grep="grep --exclude-dir='.svn' --exclude=tags --color=auto"
 fi
 
 alias ll='ls -alF'
@@ -229,3 +237,12 @@ function chmodd()
     find $2 -type d -exec chmod $1 {} \;
 }
 
+function tree()
+{
+    find . -print 2>/dev/null | awk '!/\.$/ {   \
+        for (i=1; i<NF; i++) {                  \
+            printf("%4s", "|")                  \
+        }                                       \
+        print "-- "$NF                          \
+    }' FS='/'
+}

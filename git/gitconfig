@@ -26,8 +26,15 @@
 	untracked = red bold
 [diff]
 	tool = vimdiff
-[difftool]
-	prompt = false
+# [difftool]
+    # prompt = false
+[difftool "vimdiff"]
+	cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = vimdiff
+[mergetool "vimdiff"]
+	cmd = "vimdiff --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+	trustExitCode = true
 [gitflow "prefix"]
 	feature = feature-
 	release = release-
