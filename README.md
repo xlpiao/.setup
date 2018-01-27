@@ -32,6 +32,7 @@ https://github.com/tikhomirov/vim-glsl.git
 https://github.com/pangloss/vim-javascript.git
 https://github.com/kbenzie/vim-spirv.git
 https://github.com/alpertuna/vim-header.git
+https://github.com/vim-scripts/DoxygenToolkit.vim.git
 ```
 <!--
 ## ubuntu

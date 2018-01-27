@@ -73,6 +73,9 @@ Plugin 'tikhomirov/vim-glsl'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kbenzie/vim-spirv'
 
+"" Add doxygen
+Plugin 'vim-scripts/DoxygenToolkit.vim'
+
 "" Autocomplete
 " if $OSTYPE == "linux-gnu"
 	" Plugin 'Valloric/YouCompleteMe'
