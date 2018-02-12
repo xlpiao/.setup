@@ -252,6 +252,7 @@ noremap  <silent> <Tab><Tab>	<C-w><C-w>
 noremap  <silent> <leader>t		:TagbarToggle<CR>
 noremap  <silent> <leader>e		:NERDTreeToggle<CR>
 noremap  <silent> <leader>\		:call CommentToggle()<CR>
+noremap  <silent> <leader>c		:call CopyToggle()<CR>
 
 command! Trim       :%s/\s\+$//
 command! Html       :call Html()
@@ -291,3 +292,15 @@ function! Syntax()
 	exe ':syntax sync fromstart'
 endfunction
 
+function! CopyToggle()
+	echo &mouse
+	if &mouse == 'a'
+		exe ':IndentLinesDisable'
+		exe ':set nonu'
+		exe ':set mouse='
+	else
+		exe ':IndentLinesEnable'
+		exe ':set nu'
+		exe ':set mouse=a'
+	endif
+endfunction
