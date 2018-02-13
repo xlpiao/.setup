@@ -23,7 +23,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     alias spirv='cd $TRUNK/src/toc/test/gk/gk1-4/d3d11/spirv'
 
     ## spirv dir
-    export SPIRV=$TRUNK/src/toc/test/gk/gk1-4/d3d11/spirv
+    export SPIRV=$TRUNK/src/toc/src/lib/twk2/directx/external/spirv
 
     export GLSLANG=$SPIRV/glslang
     alias glslangValidator=$GLSLANG/build/install/bin/glslangValidator
