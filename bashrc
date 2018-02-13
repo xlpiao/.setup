@@ -7,37 +7,38 @@
 ## Temporary Command Configurations
 ################################################################################
 
-export CC='/usr/bin/clang-3.8'
-export CXX='/usr/bin/clang++-3.8'
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    export CC='/usr/bin/clang-3.8'
+    export CXX='/usr/bin/clang++-3.8'
 
-## trunk dir
-export TRUNK=$HOME/trunk
+    ## trunk dir
+    export TRUNK=$HOME/trunk
 
-## d3d11 dir
-alias toc='cd $TRUNK/src/toc'
-alias build='cd $TRUNK/src/toc/build'
-alias test='cd $TRUNK/src/toc/test/gk/gk1-4'
-alias lib='cd $TRUNK/src/toc/src/lib/twk2/directx'
-alias dll='cd $TRUNK/src/toc/src/dlls/gk/directx'
-alias spirv='cd $TRUNK/src/toc/test/gk/gk1-4/d3d11/spirv'
+    ## d3d11 dir
+    alias toc='cd $TRUNK/src/toc'
+    alias build='cd $TRUNK/src/toc/build'
+    alias test='cd $TRUNK/src/toc/test/gk/gk1-4'
+    alias lib='cd $TRUNK/src/toc/src/lib/twk2/directx'
+    alias dll='cd $TRUNK/src/toc/src/dlls/gk/directx'
+    alias spirv='cd $TRUNK/src/toc/test/gk/gk1-4/d3d11/spirv'
 
-## spirv dir
-export SPIRV=$TRUNK/src/toc/test/gk/gk1-4/d3d11/spirv
+    ## spirv dir
+    export SPIRV=$TRUNK/src/toc/test/gk/gk1-4/d3d11/spirv
 
-export GLSLANG=$SPIRV/glslang
-alias glslangValidator=$GLSLANG/build/install/bin/glslangValidator
-alias spirv-remap=$GLSLANG/build/install/bin/spirv-remap
+    export GLSLANG=$SPIRV/glslang
+    alias glslangValidator=$GLSLANG/build/install/bin/glslangValidator
+    alias spirv-remap=$GLSLANG/build/install/bin/spirv-remap
 
-export SPIRV_Tools=$SPIRV/SPIRV-Tools
-alias spirv-as=$SPIRV_Tools/build/tools/spirv-as
-alias spirv-dis=$SPIRV_Tools/build/tools/spirv-dis
-alias spirv-cfg=$SPIRV_Tools/build/tools/spirv-cfg
-alias spirv-opt=$SPIRV_Tools/build/tools/spirv-opt
-alias spirv-val=$SPIRV_Tools/build/tools/spirv-val
+    export SPIRV_Tools=$SPIRV/SPIRV-Tools
+    alias spirv-as=$SPIRV_Tools/build/tools/spirv-as
+    alias spirv-dis=$SPIRV_Tools/build/tools/spirv-dis
+    alias spirv-cfg=$SPIRV_Tools/build/tools/spirv-cfg
+    alias spirv-opt=$SPIRV_Tools/build/tools/spirv-opt
+    alias spirv-val=$SPIRV_Tools/build/tools/spirv-val
 
-export SPIRV_Cross=$SPIRV/SPIRV-Cross
-alias spirv-cross=$SPIRV_Cross/build/spirv-cross
-
+    export SPIRV_Cross=$SPIRV/SPIRV-Cross
+    alias spirv-cross=$SPIRV_Cross/build/spirv-cross
+fi
 ################################################################################
 ## User Command Configurations
 ################################################################################
