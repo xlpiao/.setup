@@ -20,7 +20,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     alias test='cd $TRUNK/src/toc/test/gk/gk1-4'
     alias lib='cd $TRUNK/src/toc/src/lib/twk2/directx'
     alias dll='cd $TRUNK/src/toc/src/dlls/gk/directx'
-    alias spirv='cd $TRUNK/src/toc/test/gk/gk1-4/d3d11/spirv'
+    alias spirv='cd $TRUNK/src/toc/src/lib/twk2/directx/external/spirv'
 
     ## spirv dir
     export SPIRV=$TRUNK/src/toc/src/lib/twk2/directx/external/spirv
@@ -29,14 +29,14 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     alias glslangValidator=$GLSLANG/build/install/bin/glslangValidator
     alias spirv-remap=$GLSLANG/build/install/bin/spirv-remap
 
-    export SPIRV_Tools=$SPIRV/SPIRV-Tools
+    export SPIRV_Tools=$SPIRV/spirv-tools
     alias spirv-as=$SPIRV_Tools/build/tools/spirv-as
     alias spirv-dis=$SPIRV_Tools/build/tools/spirv-dis
     alias spirv-cfg=$SPIRV_Tools/build/tools/spirv-cfg
     alias spirv-opt=$SPIRV_Tools/build/tools/spirv-opt
     alias spirv-val=$SPIRV_Tools/build/tools/spirv-val
 
-    export SPIRV_Cross=$SPIRV/SPIRV-Cross
+    export SPIRV_Cross=$SPIRV/spirv-cross
     alias spirv-cross=$SPIRV_Cross/build/spirv-cross
 fi
 ################################################################################
