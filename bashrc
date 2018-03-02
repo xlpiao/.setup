@@ -25,20 +25,25 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     ## spirv dir
     export SPIRV=$TRUNK/src/toc/src/lib/twk2/directx/external/spirv
 
-    export GLSLANG=$SPIRV/glslang
-    alias glslangValidator=$GLSLANG/build/install/bin/glslangValidator
-    alias spirv-remap=$GLSLANG/build/install/bin/spirv-remap
+    alias glslangValidator=$SPIRV/glslangValidator
+    alias spirv-dis=$SPIRV/spirv-dis
+    alias spirv-cross=$SPIRV/spirv-cross
 
-    export SPIRV_Tools=$SPIRV/SPIRV-Tools
-    alias spirv-as=$SPIRV_Tools/build/install/bin/spirv-as
-    alias spirv-dis=$SPIRV_Tools/build/install/bin/spirv-dis
-    alias spirv-cfg=$SPIRV_Tools/build/install/bin/spirv-cfg
-    alias spirv-opt=$SPIRV_Tools/build/install/bin/spirv-opt
-    alias spirv-val=$SPIRV_Tools/build/install/bin/spirv-val
+    # export GLSLANG=$SPIRV/glslang
+    # alias glslangValidator=$GLSLANG/build/install/bin/glslangValidator
+    # alias spirv-remap=$GLSLANG/build/install/bin/spirv-remap
 
-    export SPIRV_Cross=$SPIRV/SPIRV-Cross
-    alias spirv-cross=$SPIRV_Cross/build/install/bin/spirv-cross
+    # export SPIRV_Tools=$SPIRV/SPIRV-Tools
+    # alias spirv-as=$SPIRV_Tools/build/install/bin/spirv-as
+    # alias spirv-dis=$SPIRV_Tools/build/install/bin/spirv-dis
+    # alias spirv-cfg=$SPIRV_Tools/build/install/bin/spirv-cfg
+    # alias spirv-opt=$SPIRV_Tools/build/install/bin/spirv-opt
+    # alias spirv-val=$SPIRV_Tools/build/install/bin/spirv-val
+
+    # export SPIRV_Cross=$SPIRV/SPIRV-Cross
+    # alias spirv-cross=$SPIRV_Cross/build/install/bin/spirv-cross
 fi
+
 ################################################################################
 ## User Command Configurations
 ################################################################################
@@ -236,26 +241,4 @@ function extract()
     else
         echo "'$1' is not a vaild file"
     fi
-}
-
-# chmodf 0775 .
-function chmodf()
-{
-    find $2 -type f -exec chmod $1 {} \;
-}
-
-# chmodd 0664 .
-function chmodd()
-{
-    find $2 -type d -exec chmod $1 {} \;
-}
-
-function tree()
-{
-    find . -print 2>/dev/null | awk '!/\.$/ {   \
-        for (i=1; i<NF; i++) {                  \
-            printf("%4s", "|")                  \
-        }                                       \
-        print "-- "$NF                          \
-    }' FS='/'
 }

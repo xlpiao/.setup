@@ -253,6 +253,7 @@ noremap  <silent> <leader>t		:TagbarToggle<CR>
 noremap  <silent> <leader>e		:NERDTreeToggle<CR>
 noremap  <silent> <leader>\		:call CommentToggle()<CR>
 noremap  <silent> <leader>c		:call CopyToggle()<CR>
+noremap  <silent> <leader>/		:call BeautifulCommentToggle()<CR>
 
 command! Trim       :%s/\s\+$//
 command! Html       :call Html()
@@ -302,5 +303,14 @@ function! CopyToggle()
 		exe ':IndentLinesEnable'
 		exe ':set nu'
 		exe ':set mouse=a'
+	endif
+endfunction
+
+function! BeautifulCommentToggle()
+	if getline(".") =~ '^\s*/\* .* \*/'
+		exe ":norm ^xxx$xxx"
+	elseif (strlen(getline(".")) > 0)
+		exe ":norm^i/* "
+		exe ":norm$a */"
 	endif
 endfunction
