@@ -1,16 +1,16 @@
 #!/bin/bash
-# File: install.sh
-# Author: Xianglan Piao <xianglan0502@gmail.com>
-# Date: 2013.03.21
-# Last Modified Date: 2018.01.15
-# Last Modified By: Xianglan Piao <xianglan0502@gmail.com>
+# File              : install.sh
+# Author            : Xianglan Piao <xianglan0502@gmail.com>
+# Date              : 2013.03.21
+# Last Modified Date: 2018.08.13
+# Last Modified By  : Xianglan Piao <xianglan0502@gmail.com>
 
 
 PACKAGE=("vim" "openssh-server" "tmux" "screen" "exuberant-ctags")
 for p in ${PACKAGE[@]}; do
     if [[ "$OSTYPE" == "linux-gnu" ]]; then
         sudo apt-get -y install $p
-    elif [[ "$OSTYPE" == "darwin16" ]]; then
+    elif [[ "$OSTYPE" == "darwin17" ]]; then
         sudo port install $p
     else
         sudo pkg install $p
