@@ -1,3 +1,8 @@
+" File              : vimrc
+" Author            : Xianglan Piao <xianglan0502@gmail.com>
+" Date              : 2018.08.12
+" Last Modified Date: 2018.08.12
+" Last Modified By  : Xianglan Piao <xianglan0502@gmail.com>
 " File: vimrc
 " Author: Xianglan Piao <xianglan0502@gmail.com>
 " Date: 2014.07.31
@@ -82,10 +87,10 @@ Plugin 'vim-scripts/DoxygenToolkit.vim'
 " endif
 
 "" Add Header
-" Plugin 'alpertuna/vim-header'
-" let g:header_field_author = 'Xianglan Piao'
-" let g:header_field_author_email = 'xianglan0502@gmail.com'
-" let g:header_field_timestamp_format = '%Y.%m.%d'
+Plugin 'alpertuna/vim-header'
+let g:header_field_author = 'Xianglan Piao'
+let g:header_field_author_email = 'xianglan0502@gmail.com'
+let g:header_field_timestamp_format = '%Y.%m.%d'
 
 call vundle#end()	" required
 filetype plugin indent on	" required

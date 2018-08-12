@@ -1,4 +1,9 @@
 #!/bin/bash
+# File              : bashrc
+# Author            : Xianglan Piao <xianglan0502@gmail.com>
+# Date              : 2018.08.12
+# Last Modified Date: 2018.08.12
+# Last Modified By  : Xianglan Piao <xianglan0502@gmail.com>
 # File: .bashrc
 # Author: Xianglan Piao <xianglan0502@gmail.com>
 # Date: 2012.07.31
@@ -79,7 +84,7 @@ export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=01;30:fn=35:ln=32:bn=32:se=36"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     alias ls='ls --color=auto'
     alias grep="grep --exclude-dir='.svn' --exclude=tags --color=auto"
-elif [[ "$OSTYPE" == "darwin16" ]]; then
+elif [[ "$OSTYPE" == "darwin17" ]]; then
 # else # OS X
     export CLICOLOR=1
     export LC_ALL='en_US.UTF-8'
