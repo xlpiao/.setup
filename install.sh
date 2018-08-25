@@ -11,18 +11,17 @@ for p in ${PACKAGE[@]}; do
     if [[ "$OSTYPE" == "linux-gnu" ]]; then
         sudo apt-get -y install $p
         sudo apt-get -y install clang clang-format
-        ## clang-format -style=google -dump-config > clang-format-google
-        cp clang-format-google ~/.clang-format
     elif [[ "$OSTYPE" == "darwin17" ]]; then
         sudo port install $p
         sudo port install clang
-        ## clang-format -style=webkit -dump-config > clang-format-webkit
-        cp clang-format-webkit ~/.clang-format
-
     else
         sudo pkg install $p
     fi
 done
+
+
+## clang-format -style=webkit -dump-config > clang-format-webkit
+cp clang-format-webkit ~/.clang-format
 
 
 TARGET=("vim" "vimrc" "bashrc" "bash_profile" "gitconfig")
