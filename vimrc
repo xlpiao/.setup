@@ -1,29 +1,35 @@
 " File              : vimrc
 " Author            : Xianglan Piao <xianglan0502@gmail.com>
-" Date              : 2018.08.12
-" Last Modified Date: 2018.08.12
+" Date              : 2012.08.26
+" Last Modified Date: 2018.08.26
 " Last Modified By  : Xianglan Piao <xianglan0502@gmail.com>
-" File: vimrc
-" Author: Xianglan Piao <xianglan0502@gmail.com>
-" Date: 2014.07.31
-" Last Modified Date: 2017.08.01
-" Last Modified By: Xianglan Piao <xianglan0502@gmail.com>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
 
-"" set the runtime path to include Vundle and initialize
+filetype off
+
+"" Vim Plugin Manager
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
-
-"" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-" Plugin 'gmarik/vundle'
 
-"" Auto pairs {},()
+"" Google Coding Style
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+Plugin 'google/vim-glaive'
+
+"" Nerdtree File Explorer
+Plugin 'scrooloose/nerdtree'
+let g:NERDTreeDirArrows=0
+
+"" Tagbar
+Plugin 'majutsushi/tagbar'
+let g:tagbar_left=1
+
+"" Auto Pairs {},()
 Plugin 'jiangmiao/auto-pairs'
 
 "" Multiple Selection
@@ -33,37 +39,26 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
-"" Autoformat
-Plugin 'chiel92/vim-autoformat'
-
-"" indent line
+"" Indent Line
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_enabled=1
 "" | ¦ ┆ ┊ │
 let g:indentLine_char="│"
 let g:indentLine_color_term=239
 
-"" File explorer
-Plugin 'scrooloose/nerdtree'
-let g:NERDTreeDirArrows=0
-
-"" Tagbar
-Plugin 'majutsushi/tagbar'
-let g:tagbar_left=1
-
-"" Diff two directories
+"" Diff Two Directories
 Plugin 'will133/vim-dirdiff'
 let g:DirDiffExcludes = ".svn,tags,*.pyc"
 
-"" vim CSV transpose
+"" Vim CSV Transpose
 Plugin 'salsifis/vim-transpose'
 
-"" vim easy align
+"" Vim Easy Align
 Plugin 'junegunn/vim-easy-align'
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-"" Status line
+"" Status Line
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
@@ -71,7 +66,7 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:airline_left_sep = ' '
 let g:airline_right_sep = ' '
 
-"" Syntax highlight
+"" Syntax Highlight
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'beyondmarc/hlsl.vim'
 Plugin 'tikhomirov/vim-glsl'
@@ -81,26 +76,35 @@ Plugin 'kbenzie/vim-spirv'
 "" Add doxygen
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 
-"" Autocomplete
-" if $OSTYPE == "linux-gnu"
-	" Plugin 'Valloric/YouCompleteMe'
-" endif
-
 "" Add Header
 Plugin 'alpertuna/vim-header'
+let g:header_auto_add_header = 0
 let g:header_field_author = 'Xianglan Piao'
 let g:header_field_author_email = 'xianglan0502@gmail.com'
 let g:header_field_timestamp_format = '%Y.%m.%d'
 
-call vundle#end()	" required
-filetype plugin indent on	" required
+call vundle#end()
 
+filetype plugin indent on
+
+"" Google Coding Style Plugin Setup
+augroup autoformat_settings
+    autocmd FileType bzl AutoFormatBuffer buildifier
+    autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+    autocmd FileType dart AutoFormatBuffer dartfmt
+    autocmd FileType go AutoFormatBuffer gofmt
+    autocmd FileType gn AutoFormatBuffer gn
+    autocmd FileType html,css,json AutoFormatBuffer js-beautify
+    autocmd FileType java AutoFormatBuffer google-java-format
+    autocmd FileType python AutoFormatBuffer yapf
+    " autocmd FileType python AutoFormatBuffer autopep8
+augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Filetype
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup Filetype
-	au!
+    au!
 	au BufRead,BufNewFile *{Makefile,makefile}*     			set filetype=make
 	au BufRead,BufNewFile *.{ll,bc}                				set filetype=llvm
 	au BufRead,BufNewFile *.td                      			set filetype=tablegen
@@ -120,6 +124,7 @@ augroup Filetype
 	" au BufRead,BufNewFile *.git/COMMIT_EDITMSG      			set fileencoding=utf-8
 augroup END
 
+autocmd FileType cpp,c source ~/.vim/syntax/vulkan1.0.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Basic
@@ -139,9 +144,9 @@ set visualbell
 set cursorline
 
 "" Searching
-set hlsearch		" highlight matched
-set incsearch		" incremental searching
-set ignorecase		" searches are case insensitive
+set hlsearch
+set incsearch
+set ignorecase
 set smartcase
 
 set mouse=a
@@ -157,18 +162,9 @@ set nobomb
 set nobackup
 set noswapfile
 set clipboard=unnamed,unnamedplus
-
 set sol
-" set paste
-
-" set autoindent
-" set smartindent
 
 syntax on
-
-" vulkan highlight
-autocmd FileType cpp,c source ~/.vim/syntax/vulkan1.0.vim
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Tags
@@ -180,9 +176,9 @@ if &diff
 endif
 
 au BufRead *
-			\ if line("'\"") > 0 && line("'\"") <= line("$") |
-			\    exe "norm g'\"" |
-			\ endif
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \    exe "norm g'\"" |
+    \ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -197,20 +193,17 @@ else
 	" let g:molokia_original=1
 	let g:airline_theme='term'
 
-	hi SpecialKey       ctermfg=239
-	hi Statement        ctermfg=161                     cterm=bold
-	hi StatusLine       ctermfg=233     ctermbg=251     cterm=none
-	hi StatusLineNC     ctermfg=242     ctermbg=232
-	hi Visual                           ctermbg=238
-	" hi Normal           ctermfg=15      ctermbg=none
-	hi Normal           ctermfg=15      ctermbg=232
-	hi Comment          ctermfg=244
-	hi CursorLine                       ctermbg=236     cterm=none
-	" hi CursorLine                       ctermbg=238     cterm=none
-	" hi CursorLineNr     ctermfg=208                     cterm=none
-	hi CursorLineNr     ctermfg=208     ctermbg=232     cterm=none
-	hi LineNr           ctermfg=250     ctermbg=232
-	hi NonText          ctermfg=250     ctermbg=232
+	hi SpecialKey     ctermfg=239
+	hi Statement      ctermfg=161                     cterm=bold
+	hi StatusLine     ctermfg=233     ctermbg=251     cterm=none
+	hi StatusLineNC   ctermfg=242     ctermbg=232
+	hi Visual                         ctermbg=238
+	hi Normal         ctermfg=15      ctermbg=232
+	hi Comment        ctermfg=244
+	hi CursorLine                     ctermbg=236     cterm=none
+	hi CursorLineNr   ctermfg=208     ctermbg=232     cterm=none
+	hi LineNr         ctermfg=250     ctermbg=232
+	hi NonText        ctermfg=250     ctermbg=232
 endif
 
 
@@ -227,95 +220,93 @@ let t:Space=" "
 augroup AutoComment
 	au!
 	au FileType c,cpp,verilog,php,javascript,html,idl,opencl,cu,css,hlsl,glsl
-				\ let t:Comment='//'    |
-				\ let t:Uncomment='\/\/'
+        \ let t:Comment='//'    |
+        \ let t:Uncomment='\/\/'
 	au FileType asm,sh,python,bash,ruby,perl
-				\ let t:Comment='#'     |
-				\ let t:Uncomment='#'
+        \ let t:Comment='#'     |
+        \ let t:Uncomment='#'
 	au FileType tex,matlab
-				\ let t:Comment='%'     |
-				\ let t:Uncomment='%'   
+        \ let t:Comment='%'     |
+        \ let t:Uncomment='%' 
 	au FileType bib
-				\ let t:Comment='%'     |
-				\ let t:Uncomment='%'   |
-				\ let t:Space=""
+        \ let t:Comment='%'     |
+        \ let t:Uncomment='%'   |
+        \ let t:Space=""
 	au FileType vim
-				\ let t:Comment='"'     |
-				\ let t:Uncomment='"'
+        \ let t:Comment='"'     |
+        \ let t:Uncomment='"'
 	au FileType ini,llvm
-				\ let t:Comment=';'     |
-				\ let t:Uncomment=';'   
+        \ let t:Comment=';'     |
+        \ let t:Uncomment=';'   
 augroup END
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Key mapping and Shortcut
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" map     <F8>        :set spell!<CR>
-" let mapleader="`"
-noremap  <silent> <Tab><Tab>	<C-w><C-w>
-noremap  <silent> <leader>t		:TagbarToggle<CR>
-noremap  <silent> <leader>e		:NERDTreeToggle<CR>
-noremap  <silent> <leader>\		:call CommentToggle()<CR>
-noremap  <silent> <leader>c		:call CopyToggle()<CR>
-noremap  <silent> <leader>/		:call BeautifulCommentToggle()<CR>
+noremap <silent>    <Tab><Tab>  <C-w><C-w>
+noremap <silent>    <leader>t	:TagbarToggle<CR>
+noremap <silent>    <leader>e	:NERDTreeToggle<CR>
+noremap <silent>    <leader>\	:call CommentToggle()<CR>
+noremap <silent>    <leader>c	:call CopyToggle()<CR>
+noremap <silent>    <leader>/	:call BeautifulCommentToggle()<CR>
 
-command! Trim       :%s/\s\+$//
-command! Html       :call Html()
-command! CSV        :call CSV()
-command! Tab        :call Tab()
+command! Trim   :%s/\s\+$//
+command! Html   :call Html()
+command! CSV    :call CSV()
+command! Tab    :call Tab()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Functions 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! Tab()
-	exe ':set expandtab'
-	exe ':retab'
+    exe ':set expandtab'
+    exe ':retab'
 endfunction
 
 function! Html()
-	exe ':colorscheme molokai'
-	" exe ':colorscheme github'
-	exe ':runtime! /syntax/2html.vim'
+    exe ':colorscheme molokai'
+    " exe ':colorscheme github'
+    exe ':runtime! /syntax/2html.vim'
 endfunction
 
 function! CSV()
-	exe ':silent %!column -t'
+    exe ':silent %!column -t'
 endfunction
 
 function! CommentToggle()
-	if getline(".") =~ '^\s*'.t:Uncomment.t:Space
-		exe ":norm ^".strlen(t:Comment.t:Space)."x"
-	elseif getline(".") =~ '^\s*'.t:Uncomment.t:Uncomment
-		" nothing
-	elseif (strlen(getline(".")) > 0)
-		exe ":norm^i".t:Comment.t:Space
-	endif
+    if getline(".") =~ '^\s*'.t:Uncomment.t:Space
+        exe ":norm ^".strlen(t:Comment.t:Space)."x"
+    elseif getline(".") =~ '^\s*'.t:Uncomment.t:Uncomment
+        " nothing
+    elseif (strlen(getline(".")) > 0)
+        exe ":norm^i".t:Comment.t:Space
+    endif
 endfunction
 
 function! Syntax()
-	exe ':syntax sync fromstart'
+    exe ':syntax sync fromstart'
 endfunction
 
 function! CopyToggle()
-	echo &mouse
-	if &mouse == 'a'
-		exe ':IndentLinesDisable'
-		exe ':set nonu'
-		exe ':set mouse='
-	else
-		exe ':IndentLinesEnable'
-		exe ':set nu'
-		exe ':set mouse=a'
-	endif
+    echo &mouse
+    if &mouse == 'a'
+        exe ':IndentLinesDisable'
+        exe ':set nonu'
+        exe ':set mouse='
+    else
+        exe ':IndentLinesEnable'
+        exe ':set nu'
+        exe ':set mouse=a'
+    endif
 endfunction
 
 function! BeautifulCommentToggle()
-	if getline(".") =~ '^\s*/\* .* \*/'
-		exe ":norm ^xxx$xxx"
-	elseif (strlen(getline(".")) > 0)
-		exe ":norm^i/* "
-		exe ":norm$a */"
-	endif
+    if getline(".") =~ '^\s*/\* .* \*/'
+        exe ":norm ^xxx$xxx"
+    elseif (strlen(getline(".")) > 0)
+        exe ":norm^i/* "
+        exe ":norm$a */"
+    endif
 endfunction

@@ -10,8 +10,10 @@ PACKAGE=("vim" "openssh-server" "tmux" "screen" "exuberant-ctags")
 for p in ${PACKAGE[@]}; do
     if [[ "$OSTYPE" == "linux-gnu" ]]; then
         sudo apt-get -y install $p
+        sudo apt-get -y install clang clang-format
     elif [[ "$OSTYPE" == "darwin17" ]]; then
         sudo port install $p
+        sudo port install clang
     else
         sudo pkg install $p
     fi
@@ -34,5 +36,8 @@ fi
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
+
+## clang-format -style=google -dump-config > clang-format-google
+cp clang-format-google ~/.clang-format
 
 source $HOME/.bashrc
