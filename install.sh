@@ -21,7 +21,7 @@ done
 
 
 ## clang-format -style=google -dump-config > clang-format-google
-cp clang-format-google ~/.clang-format
+cp clang-format-google-modified ~/.clang-format
 
 
 TARGET=("vim" "vimrc" "bashrc" "bash_profile" "gitconfig")
