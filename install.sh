@@ -20,8 +20,8 @@ for p in ${PACKAGE[@]}; do
 done
 
 
-## clang-format -style=webkit -dump-config > clang-format-webkit
-cp clang-format-webkit ~/.clang-format
+## clang-format -style=google -dump-config > clang-format-google
+cp clang-format-google ~/.clang-format
 
 
 TARGET=("vim" "vimrc" "bashrc" "bash_profile" "gitconfig")
