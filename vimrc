@@ -17,9 +17,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "" Google Coding Style
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmt'
-Plugin 'google/vim-glaive'
+" Plugin 'google/vim-maktaba'
+" Plugin 'google/vim-codefmt'
+" Plugin 'google/vim-glaive'
 
 "" Nerdtree File Explorer
 Plugin 'scrooloose/nerdtree'
@@ -90,7 +90,8 @@ filetype plugin indent on
 "" Google Coding Style Plugin Setup
 augroup autoformat_settings
     autocmd FileType bzl AutoFormatBuffer buildifier
-    autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+    " autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+    autocmd FileType c,proto,javascript AutoFormatBuffer clang-format
     autocmd FileType dart AutoFormatBuffer dartfmt
     autocmd FileType go AutoFormatBuffer gofmt
     autocmd FileType gn AutoFormatBuffer gn
