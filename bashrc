@@ -57,7 +57,7 @@ alias tmux_new='tmux new -s test'
 alias tmux_attach='tmux a -t test'
 alias tmux_kill='tmux kill-session -t test'
 ## Used in client pc
-alias tmux_server='ssh server -t "tmux -u -CC attach"'
+alias tmux_server='ssh root -t "tmux -u -CC attach"'
 
 export HL=$HOME/workspace/
 # export CUDAROOT=/usr/local/cuda-5.0
@@ -168,23 +168,23 @@ function psColor()
     OS=$(uname -s)
     if [[ $USER == "root" ]]; then
         if [[ $OS == "Linux" ]]; then
-            export PS1="\[\e]0; \u@\h: \w\a\]$GREEN\u$GREEN@\h$YELLOW\w:#\[\e[00m\] "
+            export PS1="\[\e]0; \u@\h: \w\a\]$CYAN\u$CYAN@\h$YELLOW\w:#\[\e[00m\] "
         elif [[ $OS == "Darwin" ]]; then
             export PS1="\[\e]0; \u@\h: \w\a\]$RED\u$RED@\h$YELLOW\w:#\[\e[00m\] "
         elif [[ $OS == "FreeBSD" ]]; then
             export PS1="\[\e]0; \u@\h: \w\a\]$BLUE\u$BLUE@\h$YELLOW\w:#\[\e[00m\] "
         else
-            export PS1="\[\e]0; \u@\h: \w\a\]$CYAN\u$CYAN@\h$YELLOW\w:#\[\e[00m\] "
+            export PS1="\[\e]0; \u@\h: \w\a\]$GREEN\u$GREEN@\h$YELLOW\w:#\[\e[00m\] "
         fi
     else
         if [[ $OS == "Linux" ]]; then
-            export PS1="\[\e]0; \u@\h: \w\a\]$GREEN\u$GREEN@\h$YELLOW\w:$\[\e[00m\] "
+            export PS1="\[\e]0; \u@\h: \w\a\]$CYAN\u$CYAN@\h$YELLOW\w:$\[\e[00m\] "
         elif [[ $OS == "Darwin" ]]; then
             export PS1="\[\e]0; \u@\h: \w\a\]$RED\u$RED@\h$YELLOW\w:$\[\e[00m\] "
         elif [[ $OS == "FreeBSD" ]]; then
             export PS1="\[\e]0; \u@\h: \w\a\]$BLUE\u$BLUE@\h$YELLOW\w:$\[\e[00m\] "
         else
-            export PS1="\[\e]0; \u@\h: \w\a\]$CYAN\u$CYAN@\h$YELLOW\w:$\[\e[00m\] "
+            export PS1="\[\e]0; \u@\h: \w\a\]$GREEN\u$GREEN@\h$YELLOW\w:$\[\e[00m\] "
         fi
     fi
 }
