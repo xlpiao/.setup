@@ -96,8 +96,8 @@ augroup autoformat_settings
     autocmd FileType gn AutoFormatBuffer gn
     autocmd FileType html,css,json AutoFormatBuffer js-beautify
     autocmd FileType java AutoFormatBuffer google-java-format
-    autocmd FileType python AutoFormatBuffer yapf
-    " autocmd FileType python AutoFormatBuffer autopep8
+    autocmd FileType python AutoFormatBuffer autopep8
+    " autocmd FileType python AutoFormatBuffer yapf
 augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
