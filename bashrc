@@ -57,9 +57,9 @@ alias tmux_new='tmux new -s test'
 alias tmux_attach='tmux a -t test'
 alias tmux_kill='tmux kill-session -t test'
 ## Used in client pc
-alias tmux_server='ssh root -t "tmux -u -CC attach"'
+alias tmux_root='ssh root -t "tmux -u -CC attach"'
+alias tmux_tmax='ssh tmax -t "tmux -u -CC attach"'
 
-export HL=$HOME/workspace/
 # export CUDAROOT=/usr/local/cuda-5.0
 # export LD_LIBRARY_PATH=$CUDAROOT/lib64:$LD_LIBRARY_PATH
 # export PYTHONPATH=$PYTHONPATH:~/workspace/scripts
