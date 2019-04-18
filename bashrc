@@ -13,8 +13,8 @@
 ################################################################################
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    export CC='/usr/bin/clang-4.0'
-    export CXX='/usr/bin/clang++-4.0'
+    export CC='/usr/bin/clang'
+    export CXX='/usr/bin/clang++'
 
     ## trunk dir
     export TRUNK=$HOME/trunk
