@@ -42,8 +42,8 @@ let g:multi_cursor_quit_key='<Esc>'
 "" Indent Line
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_enabled=1
-"" | ¦ ┆ ┊ │
-let g:indentLine_char="│"
+"" |¦┆┊
+let g:indentLine_char="|"
 let g:indentLine_color_term=239
 
 "" Diff Two Directories
