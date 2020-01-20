@@ -92,6 +92,7 @@ filetype plugin indent on
 augroup autoformat_settings
     autocmd FileType bzl AutoFormatBuffer buildifier
     autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+    autocmd FileType proto,javascript AutoFormatBuffer clang-format
     autocmd FileType dart AutoFormatBuffer dartfmt
     autocmd FileType go AutoFormatBuffer gofmt
     autocmd FileType gn AutoFormatBuffer gn
@@ -105,24 +106,25 @@ augroup END
 "" Filetype
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup Filetype
-    au!
-	au BufRead,BufNewFile *{Makefile,makefile}*     			set filetype=make
-	au BufRead,BufNewFile *.{ll,bc}                				set filetype=llvm
-	au BufRead,BufNewFile *.td                      			set filetype=tablegen
-	au BufRead,BufNewFile *.rst                     			set filetype=rest
-	au BufRead,BufNewFile *.html                    			set filetype=html
-	au BufRead,BufNewFile *.tex                     			set filetype=tex
-	au BufRead,BufNewFile *.md                   				set filetype=markdown
-	au BufRead,BufNewFile *.m                      				set filetype=matlab
-	au BufRead,BufNewFile *.{gnuplot,gp}            			set filetype=gnuplot
-	au BufRead,BufNewFile config               					set filetype=config
-	au BufRead,BufNewFile *.cu                      			set filetype=cuda
-	au BufRead,BufNewFile *.cl                      			set filetype=opencl
-	au BufRead,BufNewFile *.{dat,data,csv}          			set filetype=csv
-	au BufRead,BufNewFile *.gdb                     			set filetype=gdb
-	au BufRead,BufNewFile *.{fx,vs,ps,hs,ds,cs}    				set filetype=hlsl
-	au BufRead,BufNewFile *.{vert,tese,tesc,geom,frag,comp}    	set filetype=glsl
-	" au BufRead,BufNewFile *.git/COMMIT_EDITMSG      			set fileencoding=utf-8
+  au!
+	au BufRead,BufNewFile *{Makefile,makefile}*             set filetype=make
+	au BufRead,BufNewFile *.{ll,bc}                         set filetype=llvm
+	au BufRead,BufNewFile *.td                              set filetype=tablegen
+	au BufRead,BufNewFile *.rst                             set filetype=rest
+	au BufRead,BufNewFile *.html                            set filetype=html
+	au BufRead,BufNewFile *.tex                             set filetype=tex
+	au BufRead,BufNewFile *.md                              set filetype=markdown
+	au BufRead,BufNewFile *.m                               set filetype=matlab
+	au BufRead,BufNewFile *.{gnuplot,gp}                    set filetype=gnuplot
+	au BufRead,BufNewFile config                            set filetype=config
+	au BufRead,BufNewFile *.cu                              set filetype=cuda
+	au BufRead,BufNewFile *.cl                              set filetype=opencl
+	au BufRead,BufNewFile *.{dat,data,csv}                  set filetype=csv
+	au BufRead,BufNewFile *.gdb                             set filetype=gdb
+	au BufRead,BufNewFile *.py                              set filetype=python
+	au BufRead,BufNewFile *.{fx,vs,ps,hs,ds,cs}             set filetype=hlsl
+	au BufRead,BufNewFile *.{vert,tese,tesc,geom,frag,comp} set filetype=glsl
+	au BufRead,BufNewFile *.git/COMMIT_EDITMSG              set fileencoding=utf-8
 augroup END
 
 autocmd FileType cpp,c source ~/.vim/syntax/vulkan1.0.vim
@@ -186,7 +188,7 @@ au BufRead *
 "" Colorscheme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
-if $OSTYPE == "linux-gnu"
+if $OS == 'Linux'
 	colorscheme monokai-soda
 	let g:airline_theme='sol'
 else
