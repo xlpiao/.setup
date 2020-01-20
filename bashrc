@@ -12,7 +12,7 @@
 ## Temporary Command Configurations
 ################################################################################
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+if [[ "$OS" == "Linux" ]]; then
     export CC='/usr/bin/clang'
     export CXX='/usr/bin/clang++'
 
@@ -81,10 +81,10 @@ export GNUTERM=x11
 export LSCOLORS="ExGxBxDxCxEgEdxbxgacad"
 export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=01;30:fn=35:ln=32:bn=32:se=36"
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+if [[ "$OS" == "Linux" ]]; then
     alias ls='ls --color=auto'
     alias grep="grep --exclude-dir='.svn' --exclude=tags --color=auto"
-elif [[ "$OSTYPE" == "darwin18" ]]; then
+elif [[ "$OS" == "Darwin" ]]; then
 # else # OS X
     export CLICOLOR=1
     export LC_ALL='en_US.UTF-8'
