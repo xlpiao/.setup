@@ -4,6 +4,7 @@ set logging on
 # keep trailing space on next line
 set prompt \033[0;33m(gdb) \033[0m
 
+set breakpoint pending on
 set print pretty on
 set print object on
 set print array on
