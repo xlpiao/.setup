@@ -21,6 +21,7 @@ done
 
 
 ## clang-format -style=google -dump-config > clang-format-google
+## AccessModifierOffset: -2
 cp clang-format-google ~/.clang-format
 
 
