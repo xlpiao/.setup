@@ -102,8 +102,8 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Comment
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let t:Comment="//"
-let t:Uncomment="\/\/"
+let t:Comment="#"
+let t:Uncomment="#"
 let t:CommentEnd=''
 let t:UncommentEnd=''
 let t:textw=80
@@ -192,14 +192,18 @@ set formatoptions-=cro
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Tags
+"" Others
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" tags
 set tags+=./tags;$HOME
 
+"" vimdiff
 if &diff
+  set diffopt-=internal
   set diffopt+=iwhite
 endif
 
+"" last edit location
 au BufRead *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \    exe "norm g'\"" |
