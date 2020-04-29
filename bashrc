@@ -81,24 +81,21 @@ export GNUTERM=x11
 export LSCOLORS="ExGxBxDxCxEgEdxbxgacad"
 export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=01;30:fn=35:ln=32:bn=32:se=36"
 
+OS=$(uname -s)
 if [ "$OS" == "Linux" ]; then
     alias ls='ls --color=auto'
-    alias grep="grep --exclude-dir='.svn' --exclude=tags --color=auto"
 elif [ "$OS" == "Darwin" ]; then
-# else # OS X
     export CLICOLOR=1
     export LC_ALL='en_US.UTF-8'
-    alias grep="grep --exclude-dir='.svn' --exclude=tags --color=auto"
-    export PATH="/opt/local/bin:/opt/local/sbin:$PATH" ## For MacPorts
     # alias ctags="`brew --prefix`/bin/ctags"
 else
     alias ls='ls --color=auto'
-    alias grep="grep --exclude-dir='.svn' --exclude=tags --color=auto"
 fi
 
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias grep="grep --exclude-dir='.svn' --exclude=tags --color=auto"
 alias checkport="sudo lsof -i -P | grep -i 'listen'"
 
 
@@ -166,7 +163,6 @@ function psColor()
     local WHITE="\[\033[0;37m\]"
     local WHITEBOLD="\[\033[1;37m\]"
 
-    OS=$(uname -s)
     if [[ $USER == "root" ]]; then
         if [[ $OS == "Linux" ]]; then
             export PS1="\[\e]0; \u@\h: \w\a\]$CYAN\u$CYAN@\h$YELLOW\w:#\[\e[00m\] "
