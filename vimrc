@@ -72,7 +72,6 @@ let g:header_field_timestamp_format = '%Y.%m.%d'
 
 "" Syntax Highlight
 Plugin 'octol/vim-cpp-enhanced-highlight'
-let g:cpp_no_function_highlight = 1
 Plugin 'beyondmarc/hlsl.vim'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'kbenzie/vim-spirv'
