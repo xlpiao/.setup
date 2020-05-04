@@ -7,11 +7,11 @@
 
 
 OS=$(uname -s)
-PACKAGE=("vim" "openssh-server" "tmux" "screen" "exuberant-ctags")
+PACKAGE=("vim" "tmux" "ctags" "clang-format")
 for p in ${PACKAGE[@]}; do
   if [[ "$OS" == "Linux" ]]; then
-    sudo apt-get -y install $p
-    sudo apt-get -y install clang clang-format
+    sudo apt -y install $p
+    sudo apt -y install openssh-server
   elif [[ "$OS" == "Darwin" ]]; then
     brew install $p
     brew install clang
@@ -32,6 +32,7 @@ for t in ${TARGET[@]}; do
   ln -s $PWD/$t $HOME/.$t
   echo $t" is changed"
 done
+source $HOME/.bash_profile
 
 
 if [[ -d "$HOME/.vim/bundle" ]]; then
@@ -42,6 +43,3 @@ fi
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
-
-
-source $HOME/.bashrc
