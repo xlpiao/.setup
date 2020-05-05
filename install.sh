@@ -11,10 +11,8 @@ PACKAGE=("vim" "tmux" "ctags" "clang-format")
 for p in ${PACKAGE[@]}; do
   if [[ "$OS" == "Linux" ]]; then
     sudo apt -y install $p
-    sudo apt -y install openssh-server
   elif [[ "$OS" == "Darwin" ]]; then
     brew install $p
-    brew install clang
   else
     pkg install $p
   fi
