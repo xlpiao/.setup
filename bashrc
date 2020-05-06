@@ -109,7 +109,7 @@ function psColor() {
 }
 psColor
 
-compress() {
+function compress() {
   FILE=$1
   shift
   case $FILE in
