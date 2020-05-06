@@ -147,6 +147,12 @@ augroup autoformat_settings
 augroup END
 
 
+"" Remove all trailing whitespace automatically
+" highlight ExtraWhitespace ctermbg=red guibg=red
+" match ExtraWhitespace /\s\+$/
+autocmd BufWritePre * %s/\s\+$//e
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Colorscheme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -226,7 +232,7 @@ command! Tab    :call Tab()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Functions 
+"" Functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! Tab()
     exe ':set expandtab'
