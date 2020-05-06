@@ -132,6 +132,9 @@ augroup AutoComment
 augroup END
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Others
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Google Coding Style Plugin Setup
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
@@ -146,16 +149,27 @@ augroup autoformat_settings
   autocmd FileType vue AutoFormatBuffer prettier
 augroup END
 
+"" tags
+set tags+=./tags;$HOME
+
+"" vimdiff
+if &diff
+  set diffopt-=internal
+  set diffopt+=iwhite
+endif
+
+"" last edit location
+au BufRead *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \    exe "norm g'\"" |
+    \ endif
 
 "" Remove all trailing whitespace automatically
 " highlight ExtraWhitespace ctermbg=red guibg=red
 " match ExtraWhitespace /\s\+$/
 autocmd BufWritePre * %s/\s\+$//e
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Colorscheme
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 set t_Co=256
 colorscheme molokai
@@ -194,25 +208,6 @@ set noswapfile
 set clipboard=unnamed,unnamedplus
 set sol
 set formatoptions-=cro
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Others
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" tags
-set tags+=./tags;$HOME
-
-"" vimdiff
-if &diff
-  set diffopt-=internal
-  set diffopt+=iwhite
-endif
-
-"" last edit location
-au BufRead *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \    exe "norm g'\"" |
-    \ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
