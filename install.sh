@@ -7,7 +7,7 @@
 
 
 OS=$(uname -s)
-PACKAGE=("vim" "tmux" "ctags" "clang-format")
+PACKAGE=("git" "vim" "tmux" "ctags" "cmake" "clang-format")
 for p in ${PACKAGE[@]}; do
   if [[ "$OS" == "Linux" ]]; then
     sudo apt -y install $p
@@ -19,7 +19,7 @@ for p in ${PACKAGE[@]}; do
 done
 
 
-# clang-format -style=google -dump-config > clang-format-google
+clang-format -style=google -dump-config > clang-format-google
 # sed -i -e 's/AccessModifierOffset: -1/AccessModifierOffset: -2/' clang-format-google
 cp clang-format-google ~/.clang-format
 
