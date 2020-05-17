@@ -33,10 +33,9 @@ export GNUTERM=x11
 export LSCOLORS="ExGxBxDxCxEgEdxbxgacad"
 export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=01;30:fn=35:ln=32:bn=32:se=36"
 
-OS=$(uname -s)
-if [ "$OS" == "Linux" ]; then
+if [ "$(uname)" = "Linux" ]; then
   alias ls='ls --color=auto'
-elif [ "$OS" == "Darwin" ]; then
+elif [ "$(uname)" = "Darwin" ]; then
   export CLICOLOR=1
   export LC_ALL='en_US.UTF-8'
   # alias ctags="`brew --prefix`/bin/ctags"
@@ -97,14 +96,14 @@ function psColor() {
   local WHITE="\[\033[0;37m\]"
   local WHITEBOLD="\[\033[1;37m\]"
 
-  if [[ $OS == "Linux" ]]; then
-    export PS1="\[\e]0; \u@\h: \w\a\]$CYAN\u$CYAN@\h$YELLOW\w:#\[\e[00m\] "
-  elif [[ $OS == "Darwin" ]]; then
-    export PS1="\[\e]0; \u@\h: \w\a\]$RED\u$RED@\h$YELLOW\w:#\[\e[00m\] "
-  elif [[ $OS == "FreeBSD" ]]; then
-    export PS1="\[\e]0; \u@\h: \w\a\]$BLUE\u$BLUE@\h$YELLOW\w:#\[\e[00m\] "
-  else
+  if [ "$(uname)" = "Linux" ]; then
     export PS1="\[\e]0; \u@\h: \w\a\]$GREEN\u$GREEN@\h$YELLOW\w:#\[\e[00m\] "
+  elif [ "$(uname)" = "Darwin" ]; then
+    export PS1="\[\e]0; \u@\h: \w\a\]$RED\u$RED@\h$YELLOW\w:#\[\e[00m\] "
+  elif [ "$(uname)" = "FreeBSD" ]; then
+    export PS1="\[\e]0; \u@\h: \w\a\]$CYAN\u$CYAN@\h$YELLOW\w:#\[\e[00m\] "
+  else
+    export PS1="\[\e]0; \u@\h: \w\a\]$BLUE\u$BLUE@\h$YELLOW\w:#\[\e[00m\] "
   fi
 }
 psColor

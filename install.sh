@@ -6,12 +6,11 @@
 # Last Modified By  : Xianglan Piao <xianglan0502@gmail.com>
 
 
-OS=$(uname -s)
 PACKAGE=("git" "vim" "tmux" "ctags" "cmake" "clang-format")
 for p in ${PACKAGE[@]}; do
-  if [[ "$OS" == "Linux" ]]; then
+  if [ "$(uname)" = "Linux" ]; then
     sudo apt -y install $p
-  elif [[ "$OS" == "Darwin" ]]; then
+  elif [ "$(uname)" = "Darwin" ]; then
     brew install $p
   else
     pkg install $p
