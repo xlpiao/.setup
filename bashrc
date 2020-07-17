@@ -97,13 +97,13 @@ function psColor() {
   local WHITEBOLD="\[\033[1;37m\]"
 
   if [ "$(uname)" = "Linux" ]; then
-    export PS1="\[\e]0; \u@\h: \w\a\]$GREEN\u$GREEN@\h$YELLOW\w:#\[\e[00m\] "
+    export PS1="\[\e]0; \u@\h: \w\a\]$GREEN\u$GREEN@\h$YELLOW\w:\\$\[\e[00m\] "
   elif [ "$(uname)" = "Darwin" ]; then
-    export PS1="\[\e]0; \u@\h: \w\a\]$RED\u$RED@\h$YELLOW\w:#\[\e[00m\] "
+    export PS1="\[\e]0; \u@\h: \w\a\]$RED\u$RED@\h$YELLOW\w:\\$\[\e[00m\] "
   elif [ "$(uname)" = "FreeBSD" ]; then
-    export PS1="\[\e]0; \u@\h: \w\a\]$CYAN\u$CYAN@\h$YELLOW\w:#\[\e[00m\] "
+    export PS1="\[\e]0; \u@\h: \w\a\]$CYAN\u$CYAN@\h$YELLOW\w:\\$\[\e[00m\] "
   else
-    export PS1="\[\e]0; \u@\h: \w\a\]$BLUE\u$BLUE@\h$YELLOW\w:#\[\e[00m\] "
+    export PS1="\[\e]0; \u@\h: \w\a\]$BLUE\u$BLUE@\h$YELLOW\w:\\$\[\e[00m\] "
   fi
 }
 psColor
