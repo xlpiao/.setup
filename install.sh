@@ -19,7 +19,9 @@ done
 
 
 clang-format -style=google -dump-config > clang-format-google
-# sed -i -e 's/AccessModifierOffset: -1/AccessModifierOffset: -2/' clang-format-google
+sed -i -e 's/AccessModifierOffset: -1/AccessModifierOffset: -2/' clang-format-google
+sed -i -e 's/BinPackArguments: true/BinPackArguments: false/' clang-format-google
+sed -i -e 's/BinPackParameters: true/BinPackParameters: false/' clang-format-google
 cp clang-format-google ~/.clang-format
 
 
