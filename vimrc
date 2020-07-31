@@ -94,6 +94,7 @@ augroup Filetype
   au BufRead,BufNewFile *.{dat,data,csv}                  set filetype=csv
   au BufRead,BufNewFile *.{fx,vs,ps,hs,ds,cs}             set filetype=hlsl
   au BufRead,BufNewFile *.{vert,tese,tesc,geom,frag,comp} set filetype=glsl
+  au BufRead,BufNewFile *.ts                              set filetype=javascript
   " au BufRead,BufNewFile *.git/COMMIT_EDITMSG              set fileencoding=utf-8
 augroup END
 
