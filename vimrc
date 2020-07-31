@@ -27,6 +27,7 @@ let g:tagbar_left=1
 Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
+Plugin 'google/yapf'
 
 "" Auto Pairs {},()
 Plugin 'jiangmiao/auto-pairs'
