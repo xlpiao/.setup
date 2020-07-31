@@ -90,7 +90,6 @@ filetype plugin indent on
 augroup Filetype
   au!
   au BufRead,BufNewFile *.{ll,bc}                         set filetype=llvm
-  au BufRead,BufNewFile *.cl                              set filetype=opencl
   au BufRead,BufNewFile *.{dat,data,csv}                  set filetype=csv
   au BufRead,BufNewFile *.{fx,vs,ps,hs,ds,cs}             set filetype=hlsl
   au BufRead,BufNewFile *.{vert,tese,tesc,geom,frag,comp} set filetype=glsl
