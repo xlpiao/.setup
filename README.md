@@ -3,8 +3,8 @@
 
 ## Installation
 ```
-git clone https://github.com/xlpiao/.xlpiao.git
-cd .xlpiao
+git clone git@github.com:xlpiao/.setup.git
+cd .setup
 ./install.sh
 ```
 
