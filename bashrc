@@ -142,3 +142,15 @@ function extract() {
     echo "'$1' is not a vaild file"
   fi
 }
+
+function new() {
+  tmux new -s $1
+}
+
+function attach() {
+  tmux a -t $1
+}
+
+function sshattach() {
+  ssh $1 -t "tmux -u -CC attach"
+}
