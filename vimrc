@@ -1,8 +1,8 @@
 " File              : vimrc
-" Author            : Xianglan Piao <xianglan0502@gmail.com>
+" Author            : Xianglan Piao <lanxlpiao@gmail.com>
 " Date              : 2012.08.26
 " Last Modified Date: 2018.08.26
-" Last Modified By  : Xianglan Piao <xianglan0502@gmail.com>
+" Last Modified By  : Xianglan Piao <lanxlpiao@gmail.com>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -68,7 +68,7 @@ Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'alpertuna/vim-header'
 let g:header_auto_add_header = 0
 let g:header_field_author = 'Xianglan Piao'
-let g:header_field_author_email = 'xianglan0502@gmail.com'
+let g:header_field_author_email = 'lanxlpiao@gmail.com'
 let g:header_field_timestamp_format = '%Y.%m.%d'
 
 "" Syntax Highlight
