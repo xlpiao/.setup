@@ -9,19 +9,10 @@
 # Date: 2012.07.31
 
 
-################################################################################
 ## User Command Configurations
-################################################################################
-alias tmux_new='tmux new -s test'
-alias tmux_attach='tmux a -t test'
-alias tmux_kill='tmux kill-session -t test'
-alias tmux_root='ssh root -t "tmux -u -CC attach"'
-alias tmux_tmax='ssh tmax -t "tmux -u -CC attach"'
 
 
-################################################################################
 ## System Command Configurations
-################################################################################
 export PATH=/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin
 export EDITOR=vim
 export SVN_EDITOR=vim
@@ -50,9 +41,7 @@ alias grep="grep --exclude-dir='.svn' --exclude=tags --color=auto"
 alias checkport="sudo lsof -i -P | grep -i 'listen'"
 
 
-################################################################################
 ## Functions
-################################################################################
 function x11() {
   if [[ "$1" == "reset" ]]; then
     export DISPLAY=:0
@@ -143,14 +132,14 @@ function extract() {
   fi
 }
 
-function new() {
-  tmux new -s $1
-}
-
-function attach() {
-  tmux a -t $1
-}
-
-function sshattach() {
-  ssh $1 -t "tmux -u -CC attach"
+function t() {
+  if [[ "$1" == "new" ]]; then
+    tmux new -s $2
+  elif [[ "$1" == "attach" ]]; then
+    tmux a -t $2
+  elif [[ "$1" == "sshattach" ]]; then
+    ssh $2 -t "tmux -u -CC attach"
+  elif [[ "$1" == "kill" ]]; then
+    tmux kill-session -t $2
+  fi
 }
