@@ -20,6 +20,7 @@ done
 
 clang-format -style=google -dump-config > clang-format-google
 sed -i -e 's/AccessModifierOffset: -1/AccessModifierOffset: -2/' clang-format-google
+sed -i -e 's/AllowAllParametersOfDeclarationOnNextLine: true/AllowAllParametersOfDeclarationOnNextLine: false/' clang-format-google
 sed -i -e 's/BinPackArguments: true/BinPackArguments: false/' clang-format-google
 sed -i -e 's/BinPackParameters: true/BinPackParameters: false/' clang-format-google
 sed -i -e 's/Standard:        Auto//' clang-format-google

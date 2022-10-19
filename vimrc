@@ -111,7 +111,7 @@ let t:Space=" "
 
 augroup AutoComment
   au!
-  au FileType c,cc,cpp,verilog,php,javascript,html,idl,opencl,cuda,css,hlsl,glsl
+  au FileType c,cc,cpp,verilog,php,java,javascript,html,idl,opencl,cuda,css,hlsl,glsl
         \ let t:Comment='//'    |
         \ let t:Uncomment='\/\/'
   au FileType asm,sh,python,bash,ruby,perl
@@ -139,7 +139,7 @@ augroup END
 "" Google Coding Style Plugin Setup
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType c,cuda,opencl,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
+  autocmd FileType c,cc,cuda,opencl,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
   autocmd FileType dart AutoFormatBuffer dartfmt
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType gn AutoFormatBuffer gn
