@@ -32,6 +32,13 @@ for t in ${TARGET[@]}; do
   ln -s $PWD/$t $HOME/.$t
   echo $t" is changed"
 done
+
+if [ "$(uname)" = "Linux" ]; then
+  # git clone https://github.com/Gogh-Co/Gogh.git gogh
+  # cd gogh
+  bash -c "$(wget -qO- https://git.io/vQgMr)"
+fi
+
 source $HOME/.bash_profile
 
 
