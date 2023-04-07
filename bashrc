@@ -24,6 +24,8 @@ export GNUTERM=x11
 export LSCOLORS="ExGxBxDxCxEgEdxbxgacad"
 export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=01;30:fn=35:ln=32:bn=32:se=36"
 
+alias docker_clean="docker system prune -a --volumes"
+
 if [ "$(uname)" = "Linux" ]; then
   alias ls='ls --color=auto'
 elif [ "$(uname)" = "Darwin" ]; then
