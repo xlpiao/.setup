@@ -36,7 +36,7 @@ else
   alias ls='ls --color=auto'
 fi
 
-alias ll='ls -alF'
+alias ll='ls -lFct'
 alias la='ls -A'
 alias l='ls -CF'
 alias grep="grep --exclude-dir='.svn' --exclude=tags --color=auto"
