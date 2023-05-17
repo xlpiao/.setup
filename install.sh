@@ -6,7 +6,7 @@
 # Last Modified By  : Xianglan Piao <xianglan0502@gmail.com>
 
 
-PACKAGE=("git" "vim" "tmux" "ctags" "cmake" "clang-format")
+PACKAGE=("git" "vim" "tmux" "exuberant-ctags" "cmake" "clang-format")
 for p in ${PACKAGE[@]}; do
   if [ "$(uname)" = "Linux" ]; then
     sudo apt -y install $p
