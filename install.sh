@@ -6,7 +6,7 @@
 # Last Modified By  : Xianglan Piao <xianglan0502@gmail.com>
 
 
-PACKAGE=("git" "vim" "tmux" "exuberant-ctags" "cmake" "clang-format")
+PACKAGE=("git" "wget" "vim" "tmux" "exuberant-ctags" "cmake" "clang-format")
 for p in ${PACKAGE[@]}; do
   if [ "$(uname)" = "Linux" ]; then
     sudo apt -y install $p
@@ -34,8 +34,8 @@ for t in ${TARGET[@]}; do
 done
 
 if [ "$(uname)" = "Linux" ]; then
-  # git clone https://github.com/Gogh-Co/Gogh.git gogh
-  # cd gogh
+  git clone https://github.com/Gogh-Co/Gogh.git gogh
+  cd gogh
   bash -c "$(wget -qO- https://git.io/vQgMr)"
 fi
 
